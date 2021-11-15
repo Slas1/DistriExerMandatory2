@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = "./criticalpb";
+
+package criticalpb;
+
+service CriticalSectionGRPC {
+    rpc GetIdFromServer(Message) returns (IdResponse) {}
+    rpc RequestAccessToCritical(Message) returns (accessGranted){}
+    rpc RetriveCriticalInformation(Message) returns (Message){}
+    rpc ReleaseAccessToCritical(Message) returns (accessReleased){}
+}
+
+message accessGranted {
+    string message = 1;
+}
+message accessReleased {
+    string message = 1;
+}
+message Message {
+    string message = 1;
+    int32 senderID = 2;
+}
+
+message IdResponse {
+    int32 ID = 1;
+}
