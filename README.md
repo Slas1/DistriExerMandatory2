@@ -22,15 +22,15 @@ R2: Every node that requests access to the Critical Section, will get access to 
  
 1. Your nodes need to find each other.  For service discovery, you can choose one of the following options
  
-- supply a file with  ip addresses/ports of other nodes
+  - supply a file with  ip addresses/ports of other nodes
 
-- enter ip adress/ports trough command line
+  - enter ip adress/ports trough command line
 
-- use the Serf package for service discovery
+  - use the Serf package for service discovery
 
-1. Demonstrate that the system can be started with at least 3 nodes
+4. Demonstrate that the system can be started with at least 3 nodes
 
-1. Demonstrate using logs,  that a node gets access to the Critical Section
+5. Demonstrate using logs,  that a node gets access to the Critical Section
 
 ## Hand-in requirements:
 
