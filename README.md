@@ -1,4 +1,4 @@
-# MiniP2-ChittyChat
+# Mandatory Exercise 2 - Distributed Mutual Exclusion
 
 Description:
 
