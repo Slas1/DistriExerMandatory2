@@ -1,57 +1,46 @@
 # MiniP2-ChittyChat
 
-## Description
+Description:
 
-You have to implement Chitty-Chat a distributed system, that is providing a chatting service, and keeps track of logical time using Lamport Timestamps.
+You have to implement distributed mutual exclusion between nodes in your distributed system. 
 
-We call clients of the Chitty-Chat service **Participants**.
+You can choose to implement any of the algorithms, that were discussed in lecture 7.
 
-Clients in Chitty-Chat can **Publish** a valid chat message at any time the wish.
+System Requirements:
 
-A valid message is a string of UTF-8 encoded text with a maximum length of 128 characters.
+R1: Any node can at any time decide it wants access to the Critical Section
 
-A client publishes a message by making an RPC call Publish() to Chitty-Chat.
+R2: Only one node at the same time is allowed to enter the Critical Section 
 
-The Chitty-Chat service has to **Broadcast** every published message, together with the current Lamport timestamp, to all participants in the system, by using the RPC call Broadcast().
+R2: Every node that requests access to the Critical Section, will get access to the Critical Section (at some point in time)
 
-When a client receives a broadcasted message, it has to write the message and the current Lamport timestamp to the log
+Technical Requirements:
 
-Chat clients can join or drop out at any time. 
+1. Use Golang to implement the service's nodes
 
-A "Participant X  joined Chitty-Chat at Lamport time L" message is broadcast when client X joins to all Participant, including the new Participant.
+1. Use gRPC for message passing between nodes
+ 
+1. Your nodes need to find each other.  For service discovery, you can choose one of the following options
+ 
+- supply a file with  ip addresses/ports of other nodes
 
-A "Participant X left Chitty-Chat at Lamport time L" message is broadcast when Participant X leaves to all remaining Participants.
+- enter ip adress/ports trough command line
 
-## Technical Requirements
+- use the Serf package for service discovery
 
-1. Use gRPC for all message passing between nodes.
+1. Demonstrate that the system can be started with at least 3 nodes
 
-1. Use Golang to implement the service and clients.
+1. Demonstrate using logs,  that a node gets access to the Critical Section
 
-1. Every client has to be deployed as a separate processes.
+Hand-in requirements:
 
-1. Log all service calls (Publish, Broadcast, ...) using the log package.
-
-1. Demonstrate that the system can be started with at least 3 client nodes.
-
-1. Demonstrate that a client node can join the system.
-
-1. Demonstrate that a client node can leave the system.
-
-1. **Optional**: All elements of the Chitty-Chat service are deployed as Docker containers.
-
-## Hand-in Requirements
-
-1. Hand in a single report in a pdf file.
-
-1. Describe your system architecture - do you have a server-client architecture, peer to peer, or something else?
-
-1. Describe what  RPC methods are implemented: Publish(), Broadcast(), any other ?
-
-1. Describe how you have implemented calculation of the Lamport timestamps.
-
-1. Provide a diagram, that traces a sequence of RPC calls together with the Lamport timestamps, that corresponds to a chosen sequence of interactions: Client X joines, Client X Publishes, ..., Client X leaves. Include documentation (system logs) in your appendix.
+1. Hand in a single report in a pdf file
 
 1. Provide a link to a Git repo with your source code in the report
 
-1. Include system logs, that document the requirements are met, in the appendix of your report.
+1. Include system logs, that document the requirements are met, in the appendix of your report
+
+
+Grading notes
+
+Partial implementations may be accepted, if the students can reason what they should have done in the report.
