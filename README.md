@@ -1,12 +1,12 @@
 # Mandatory Exercise 2 - Distributed Mutual Exclusion
 
-Description:
+## Description:
 
 You have to implement distributed mutual exclusion between nodes in your distributed system. 
 
 You can choose to implement any of the algorithms, that were discussed in lecture 7.
 
-System Requirements:
+## System Requirements:
 
 R1: Any node can at any time decide it wants access to the Critical Section
 
@@ -14,7 +14,7 @@ R2: Only one node at the same time is allowed to enter the Critical Section
 
 R2: Every node that requests access to the Critical Section, will get access to the Critical Section (at some point in time)
 
-Technical Requirements:
+## Technical Requirements:
 
 1. Use Golang to implement the service's nodes
 
@@ -32,7 +32,7 @@ Technical Requirements:
 
 1. Demonstrate using logs,  that a node gets access to the Critical Section
 
-Hand-in requirements:
+## Hand-in requirements:
 
 1. Hand in a single report in a pdf file
 
@@ -41,6 +41,6 @@ Hand-in requirements:
 1. Include system logs, that document the requirements are met, in the appendix of your report
 
 
-Grading notes
+## Grading notes
 
 Partial implementations may be accepted, if the students can reason what they should have done in the report.
