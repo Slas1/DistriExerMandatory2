@@ -148,6 +148,6 @@ func main() {
 
 	getIdFromServer(client, criticalpb.Message{Message: message + "Please give me a unique ID", SenderID: id})
 
-	randomJoiner(ctx, client)
+	behavior(ctx, client)
 
 }
