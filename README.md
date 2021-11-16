@@ -1,5 +1,16 @@
 # Mandatory Exercise 2 - Distributed Mutual Exclusion
 
+## How to use (Target: TA)
+
+Limitations: Maximum 20 clients.
+
+1. Start server by typing: "go run server.go" in a terminal while in the server folder
+
+1. Start client by typing: "go run client.go" in a terminal while in the client folder. A client vil have a linear behavior, as seen in its "behavior" function. RequestAccess -> wait for access -> Retrive Information 5 times -> Release Access. Every 3'rd client will do a random rpc function, to display that only the Client with access have access.
+
+## Description of Submited LogFile (before TA runs)
+In the log file we created we created 2 normal clients. Then a troublelsome 3'rd client, that tried to retrive information without having access and died. We created a 4'th client and removed it while in was in queue. We then removed 2 while it had access, and the next in the queue (client 1) got access.
+
 ## Description:
 
 You have to implement distributed mutual exclusion between nodes in your distributed system. 
