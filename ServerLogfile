@@ -1,0 +1,28 @@
+13:24:46.952371 Server was started.
+13:24:54.647448 Client with id: 1 - Has requested access to Critical
+13:24:54.649451 Client with id: 1 - has retrieved Critical Information
+13:24:56.662504 Client with id: 1 - has retrieved Critical Information
+13:24:58.666449 Client with id: 1 - has retrieved Critical Information
+13:24:59.692406 Client with id: 2 - Has requested access to Critical
+13:25:00.680275 Client with id: 1 - has retrieved Critical Information
+13:25:02.702021 Client with id: 1 - has retrieved Critical Information
+13:25:04.718372 Client with id: 1 - has lost access to Critical
+13:25:07.726454 Client with id: 2 - has gained access to Critical
+13:25:07.726454 Client with id: 1 - Has requested access to Critical
+13:25:07.729927 Client with id: 2 - has retrieved Critical Information
+13:25:09.737267 Client with id: 2 - has retrieved Critical Information
+13:25:10.004215 Client with id: 4 - Has requested access to Critical
+13:25:11.744168 Client with id: 2 - has retrieved Critical Information
+13:25:13.117566 Client with id: 2 - has lost access to Critical
+13:25:15.749082 Client with id: 1 - has gained access to Critical
+13:25:15.750433 Client with id: 1 - has retrieved Critical Information
+13:25:17.757682 Client with id: 1 - has retrieved Critical Information
+13:25:19.773375 Client with id: 1 - has retrieved Critical Information
+13:25:20.871062 Client with id: 4 - has been removed from queue
+13:25:21.787820 Client with id: 1 - has retrieved Critical Information
+13:25:23.805238 Client with id: 1 - has retrieved Critical Information
+13:25:25.806907 Client with id: 1 - has lost access to Critical
+13:25:28.818190 Client with id: 1 - Has requested access to Critical
+13:25:28.819838 Client with id: 1 - has retrieved Critical Information
+13:25:30.834791 Client with id: 1 - has retrieved Critical Information
+13:25:32.842747 Client with id: 1 - has retrieved Critical Information

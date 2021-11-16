@@ -1,0 +1,30 @@
+13:24:52.627363 Client with id: 1 - Got ID from server
+13:24:54.648450 Client with id: 1 - You have gained access to Critical information
+13:24:54.650451 Client with id: 1 - Secret information. shhhh!
+13:24:56.663453 Client with id: 1 - Secret information. shhhh!
+13:24:57.688414 Client with id: 2 - Got ID from server
+13:24:58.668639 Client with id: 1 - Secret information. shhhh!
+13:25:00.689669 Client with id: 1 - Secret information. shhhh!
+13:25:02.350236 Client with id: 3 - Got ID from server
+13:25:02.352346 Client with id: 3 - Error when calling retriveCriticalInformation: rpc error: code = Unknown desc = you can't access the Critical information, you dont have access
+13:25:02.704704 Client with id: 1 - Secret information. shhhh!
+13:25:04.719578 Client with id: 1 - You have lost the access to Critical information
+13:25:07.728608 Client with id: 2 - You have gained access to Critical information
+13:25:07.731175 Client with id: 2 - Secret information. shhhh!
+13:25:07.998226 Client with id: 4 - Got ID from server
+13:25:09.739016 Client with id: 2 - Secret information. shhhh!
+13:25:11.744790 Client with id: 2 - Secret information. shhhh!
+13:25:13.118112 Client with id: 2 - You have lost the access to Critical information
+13:25:15.749727 Client with id: 1 - You have gained access to Critical information
+13:25:15.750969 Client with id: 1 - Secret information. shhhh!
+13:25:17.758443 Client with id: 1 - Secret information. shhhh!
+13:25:19.774176 Client with id: 1 - Secret information. shhhh!
+13:25:20.871616 Client with id: 4 - Sender with id: 4 - Was removed from the queue
+13:25:21.789342 Client with id: 1 - Secret information. shhhh!
+13:25:23.805777 Client with id: 1 - Secret information. shhhh!
+13:25:25.807459 Client with id: 1 - You have lost the access to Critical information
+13:25:28.818771 Client with id: 1 - You have gained access to Critical information
+13:25:28.819946 Client with id: 1 - Secret information. shhhh!
+13:25:30.835326 Client with id: 1 - Secret information. shhhh!
+13:25:32.846445 Client with id: 1 - Secret information. shhhh!
+13:25:36.910299 Client with id: 1 - Error when calling retriveCriticalInformation: rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp :8080: connectex: No connection could be made because the target machine actively refused it."

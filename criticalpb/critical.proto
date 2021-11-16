@@ -10,14 +10,17 @@ service CriticalSectionGRPC {
     rpc RetriveCriticalInformation(Message) returns (Message){}
     rpc ReleaseAccessToCritical(Message) returns (accessReleased){}
     rpc ClearFromQueue(Message) returns (Message){}
+    rpc Leave(Message) returns (Message){}
 }
 
 message accessGranted {
     string message = 1;
 }
+
 message accessReleased {
     string message = 1;
 }
+
 message Message {
     string message = 1;
     int32 senderID = 2;
