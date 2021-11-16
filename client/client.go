@@ -81,7 +81,7 @@ func leave(client criticalpb.CriticalSectionGRPCClient, request criticalpb.Messa
 	fmt.Printf("Client with id: %s - %v\n", strconv.Itoa(int(id)), response.Message)
 }
 
-func randomJoiner(ctx context.Context, client criticalpb.CriticalSectionGRPCClient) {
+func behavior(ctx context.Context, client criticalpb.CriticalSectionGRPCClient) {
 	if int(id) % 3 == 0 {
 		var prefix string = "Client with id: " + strconv.Itoa(int(id)) + " - "
 		for {
