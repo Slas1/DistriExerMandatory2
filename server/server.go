@@ -22,25 +22,26 @@ type CriticalServer struct {
 	highestUniqueID    int32
 }
 
-func pop(server CriticalServer) int32 {
-	if !isEmpty(server) {
+func (s *CriticalServer) pop() int32 {
+	if s.isEmpty() {
 		log.Panic(errors.New("the queue was empty when popping, PANIC"))
+		fmt.Println(errors.New("the queue was empty when popping, PANIC"))
 	}
-	x := server.queue[0]
-	server.queue = server.queue[1:]
+	x := s.queue[0]
+	s.queue = s.queue[1:]
 	return x
 }
 
-func push(server CriticalServer, new int32) {
-	server.queue = append(server.queue, new)
+func (s *CriticalServer) push(new int32) {
+	s.queue = append(s.queue, new)
 }
 
-func peek(server CriticalServer) int32 {
-	return server.queue[0]
+func (s *CriticalServer) peek() int32 {
+	return s.queue[0]
 }
 
-func isEmpty(server CriticalServer) bool {
-	return len(server.queue) < 1
+func (s *CriticalServer) isEmpty() bool {
+	return len(s.queue) < 1
 }
 
 func newServer() *CriticalServer {
@@ -59,22 +60,23 @@ func (s *CriticalServer) GetIdFromServer(ctx context.Context, request *criticalp
 }
 
 func (s *CriticalServer) RequestAccessToCritical(ctx context.Context, request *criticalpb.Message) (*criticalpb.AccessGranted, error) {
-	if isEmpty(*s) && s.clientIDWithAccess == 0 {
+	if (s.isEmpty() && s.clientIDWithAccess == 0) {
 		s.clientIDWithAccess = request.SenderID
-		fmt.Println("im am here")
+		fmt.Println("I'm here")
 		return &criticalpb.AccessGranted{Message: "You have gained access to Critical information"}, nil
 	} else {
-		push(*s, request.SenderID)
+		s.push(request.SenderID)
+		fmt.Println(len(s.queue))
 	}
 
 	for {
-		if peek(*s) == request.SenderID && s.clientIDWithAccess == 0 {
+		if s.peek() == request.SenderID && s.clientIDWithAccess == 0 {
 			break
 		}
 		time.Sleep(time.Second * 4)
 	}
 
-	s.clientIDWithAccess = pop(*s)
+	s.clientIDWithAccess = s.pop()
 	return &criticalpb.AccessGranted{Message: "You have gained access to Critical information"}, nil
 }
 
@@ -82,16 +84,22 @@ func (s *CriticalServer) RetriveCriticalInformation(ctx context.Context, request
 	if request.SenderID == s.clientIDWithAccess {
 		return &criticalpb.Message{Message: s.topSecretStuff}, nil
 	}
-	return nil, errors.New("you can access the Critical information, you dont have access")
+	return nil, errors.New("you can't access the Critical information, you dont have access")
 }
 
 func (s *CriticalServer) ReleaseAccessToCritical(ctx context.Context, request *criticalpb.Message) (*criticalpb.AccessReleased, error) {
-	s.clientIDWithAccess = 0
-	return &criticalpb.AccessReleased{Message: "You have lost the access to Critical information"}, nil
+	if request.SenderID == s.clientIDWithAccess {
+		s.clientIDWithAccess = 0
+		return &criticalpb.AccessReleased{Message: "You have lost the access to Critical information"}, nil
+	} 
+	return nil, errors.New("sender ID and ID of client with access don't match")
+}
+
+func (s *CriticalServer) ClearFromQueue(ctx context.Context, request *criticalpb.Message) (*criticalpb.Message, error){
 }
 
 func main() {
-	LOG_FILE := "./logfile"
+	LOG_FILE := "./ServerLogfile"
 	logFile, err := os.OpenFile(LOG_FILE, os.O_APPEND|os.O_RDWR|os.O_CREATE, 0644)
 	if err != nil {
 		log.Panic(err)
@@ -106,6 +114,7 @@ func main() {
 
 	if err != nil {
 		log.Fatalf("Failed to listen: %v", err)
+		fmt.Printf("Failed to listen: %v", err)
 	}
 
 	s := newServer()
